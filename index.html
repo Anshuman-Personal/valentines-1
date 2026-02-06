@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shona aapse bahoot important question poochna hain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            min-height: 400px;
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 30px 15px;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .message {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .message {
+                font-size: 1.1em;
+            }
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+        }
+
+        .question-container {
+            display: none;
+        }
+
+        .question {
+            font-size: 1.8em;
+            color: #e74c3c;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .question {
+                font-size: 1.4em;
+                margin-bottom: 30px;
+            }
+        }
+
+        .buttons-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .buttons-container {
+                height: 200px;
+            }
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(56, 239, 125, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .yes-btn {
+                padding: 12px 30px;
+                font-size: 1em;
+                left: 20px;
+            }
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 35px rgba(56, 239, 125, 0.6);
+        }
+
+        .no-btn {
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(238, 9, 121, 0.4);
+            transition: all 0.2s ease;
+            font-weight: bold;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .no-btn {
+                padding: 12px 30px;
+                font-size: 1em;
+                right: 20px;
+            }
+        }
+
+        .celebration {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hearts {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .success-message {
+            font-size: 2em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .success-message {
+                font-size: 1.5em;
+            }
+        }
+
+        .love-message {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .love-message {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="intro">
+            <h1>❤️ Mera cutu baby! ❤️</h1>
+            <p class="message">I have a very important question that I want to ask you...</p>
+            <button class="start-btn" onclick="showQuestion()">Press Me! 💕</button>
+        </div>
+
+        <div id="question-section" class="question-container">
+            <p class="question">Will you be my Valentine? 💝</p>
+            <div class="buttons-container">
+                <button class="yes-btn" onclick="celebrate()">Yes! 😍</button>
+                <button class="no-btn" id="noBtn" onmouseover="moveButton()" onclick="moveButton()" ontouchstart="moveButton(event)">No 😢</button>
+            </div>
+        </div>
+
+        <div id="celebration" class="celebration">
+            <div class="hearts">💖💕💗💓💝</div>
+            <p class="success-message">Yay! You made me the happiest! 🎉</p>
+            <p class="love-message">I love you so much! Can't wait to celebrate Valentine's Day with you! ❤️</p>
+            <div class="hearts">💖💕💗💓💝</div>
+        </div>
+    </div>
+
+    <script>
+        const noTexts = [
+            "No 😢",
+            "Are you sure? 🥺",
+            "Really? 😭",
+            "Please? 🙏",
+            "Don't say no! 💔",
+            "Think again! 😔",
+            "You're breaking my heart! 💔",
+            "Please reconsider! 😢",
+            "Last chance! 🥺",
+            "Pretty please? 🙏❤️"
+        ];
+
+        let noCount = 0;
+
+        function showQuestion() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('question-section').style.display = 'block';
+        }
+
+        function moveButton(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            
+            const noBtn = document.getElementById('noBtn');
+            const container = document.querySelector('.buttons-container');
+            
+            // Change text
+            noCount = (noCount + 1) % noTexts.length;
+            noBtn.textContent = noTexts[noCount];
+            
+            // Change size (shrink the button)
+            const newSize = Math.max(0.5, 1 - (noCount * 0.05));
+            noBtn.style.transform = `scale(${newSize})`;
+            
+            // Get container dimensions
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            
+            // Calculate random position within container
+            const maxX = containerRect.width - btnRect.width - 20;
+            const maxY = containerRect.height - btnRect.height - 20;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            // Move button
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('question-section').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+            
+            // Create floating hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createFloatingHeart(), i * 100);
+            }
+        }
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            heart.style.transition = 'all 3s ease-in-out';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.top = '-100px';
+                heart.style.left = (parseFloat(heart.style.left) + (Math.random() * 40 - 20)) + 'vw';
+                heart.style.opacity = '0';
+            }, 100);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3100);
+        }
+    </script>
+</body>
+
+</html>
